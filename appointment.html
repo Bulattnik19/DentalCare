@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запись на прием - Стоматология "Белый Свет"</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="" alt="Логотип Стоматологии Белый Свет"></a>
+            </div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="index.html#pricing">Цены</a></li>
+                    <li><a href="index.html#about">О нас</a></li>
+                    <li><a href="index.html#contacts">Контакты</a></li>
+                    <li><a href="appointment.html" class="cta-button">Записаться</a></li>
+                </ul>
+            </nav>
+            <button id="mobile-menu-toggle" class="mobile-menu-button">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header-section">
+            <div class="page-header-background"></div>
+            <div class="container">
+                <h1 class="page-title animate-fade-in">Онлайн-запись</h1>
+                <p class="page-subtitle animate-fade-in-delay-1">Выберите удобное время и специалиста.</p>
+            </div>
+        </section>
+
+        <section class="appointment-section">
+            <div class="container">
+                <div class="appointment-form-wrapper animate-slide-up">
+                    <form id="appointmentForm">
+                        <h3>Запишитесь на прием</h3>
+                        <div class="form-group">
+                            <label for="appointment-fio">ФИО</label>
+                            <input type="text" id="appointment-fio" placeholder="Ваше ФИО" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointment-phone">Телефон</label>
+                            <input type="tel" id="appointment-phone" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointment-email">E-mail</label>
+                            <input type="email" id="appointment-email" placeholder="Ваш E-mail">
+                        </div>
+                        <div class="form-group">
+                            <label for="appointment-service">Выберите услугу</label>
+                            <select id="appointment-service" required>
+                                <option value="">-- Выберите услугу --</option>
+                                <option value="therapy">Терапевтическая стоматология</option>
+                                <option value="hygiene">Профессиональная гигиена</option>
+                                <option value="whitening">Отбеливание зубов</option>
+                                <option value="orthodontics">Ортодонтия</option>
+                                <option value="implants">Имплантация</option>
+                                <option value="prosthetics">Протезирование</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointment-date">Желаемая дата</label>
+                            <input type="date" id="appointment-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointment-time">Желаемое время</label>
+                            <input type="time" id="appointment-time" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointment-message">Дополнительная информация (необязательно)</label>
+                            <textarea id="appointment-message" placeholder="Кратко опишите вашу проблему или пожелания"></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="index.html"><img src="" alt="Логотип" class="footer-logo"></a>
+                    <p>© 2024 Стоматология "Белый Свет". Все права защищены.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Меню</h3>
+                    <ul>
+                        <li><a href="index.html#services">Услуги</a></li>
+                        <li><a href="index.html#pricing">Цены</a></li>
+                        <li><a href="index.html#about">О нас</a></li>
+                        <li><a href="index.html#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p><span class="icon-phone"></span> <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                    <p><span class="icon-email"></span> <a href="mailto:info@whitesmile.ru">info@whitesmile.ru</a></p>
+                    <p><span class="icon-location"></span> г. Москва, ул. Белая, д. 1, стр. 1</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Мы в соцсетях</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><span class="icon-facebook"></span></a>
+                        <a href="#" aria-label="Instagram"><span class="icon-instagram"></span></a>
+                        <a href="#" aria-label="VK"><span class="icon-vk"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

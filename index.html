@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentalCare - Стоматологическая клиника</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-blue: #1e88e5;
+            --light-blue: #e3f2fd;
+            --dark-blue: #0d47a1;
+            --accent-blue: #42a5f5;
+            --text-dark: #333;
+            --text-light: #fff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-blue);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        /* Шапка и навигация */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+
+        /* Главный баннер */
+        .hero {
+            background: linear-gradient(135deg, var(--light-blue) 0%, #bbdefb 100%);
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="white" opacity="0.1"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-btns .btn {
+            padding: 15px 35px;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        /* Услуги */
+        .services {
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-blue);
+            font-size: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background-color: var(--primary-blue);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* О нас */
+        .about {
+            background-color: var(--light-blue);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature i {
+            font-size: 24px;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        /* Врачи */
+        .doctors {
+            background-color: white;
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .doctor-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .doctor-image {
+            height: 250px;
+            background-color: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 100px;
+        }
+
+        .doctor-info {
+            padding: 20px;
+        }
+
+        .doctor-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .doctor-specialty {
+            color: var(--primary-blue);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        /* Контакты */
+        .contact {
+            background-color: var(--light-blue);
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h3 {
+            margin-bottom: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-blue);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #bbdefb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #bbdefb;
+        }
+
+        /* Анимации */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-tooth"></i>
+                <span>DentalCare</span>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#doctors">Врачи</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главная страница -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Профессиональная стоматология для всей семьи</h1>
+            <p>Мы предлагаем полный спектр стоматологических услуг с использованием современного оборудования и материалов. Заботимся о здоровье ваших зубов с 2010 года.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn">Записаться на прием</a>
+                <a href="#services" class="btn btn-outline">Наши услуги</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h3>Терапевтическая стоматология</h3>
+                    <p>Лечение кариеса, пульпита, периодонтита и других заболеваний зубов с использованием современных материалов.</p>
+                    <a href="#" class="btn">Подробнее</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-teeth"></i>
+                    </div>
+                    <h3>Ортодонтия</h3>
+                    <p>Исправление прикуса и выравнивание зубов с помощью брекет-систем и элайнеров для детей и взрослых.</p>
+                    <a href="#" class="btn">Подробнее</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Ортопедическая стоматология</h3>
+                    <p>Протезирование зубов: коронки, мосты, виниры, съемные и несъемные протезы любой сложности.</p>
+                    <a href="#" class="btn">Подробнее</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-teeth-open"></i>
+                    </div>
+                    <h3>Хирургическая стоматология</h3>
+                    <p>Удаление зубов любой сложности, имплантация, костная пластика и другие хирургические вмешательства.</p>
+                    <a href="#" class="btn">Подробнее</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Эстетическая стоматология</h3>
+                    <p>Отбеливание, художественная реставрация, виниры и другие процедуры для создания идеальной улыбки.</p>
+                    <a href="#" class="btn">Подробнее</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Детская стоматология</h3>
+                    <p>Специализированная помощь для маленьких пациентов с учетом особенностей детского организма.</p>
+                    <a href="#" class="btn">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">О нашей клинике</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Стоматологическая клиника DentalCare была основана в 2010 году с целью предоставления качественных стоматологических услуг для всей семьи. За годы работы мы помогли тысячам пациентов обрести здоровую и красивую улыбку.</p>
+                    <p>Наша клиника оснащена современным оборудованием от ведущих мировых производителей. Мы используем только проверенные материалы и передовые методики лечения.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <h4>Качество</h4>
+                            <p>Сертифицированные материалы и оборудование</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-user-md"></i>
+                            <h4>Опыт</h4>
+                            <p>Врачи с опытом работы от 10 лет</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Безопасность</h4>
+                            <p>Строгое соблюдение стандартов стерилизации</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- В реальном проекте здесь будет изображение -->
+                    <div style="width:100%; height:400px; background:linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%); display:flex; align-items:center; justify-content:center; color:white; font-size:24px;">
+                        <i class="fas fa-tooth" style="font-size:100px; opacity:0.7;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Врачи -->
+    <section id="doctors" class="doctors">
+        <div class="container">
+            <h2 class="section-title">Наши врачи</h2>
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Иванов Алексей</h3>
+                        <p class="doctor-specialty">Стоматолог-терапевт</p>
+                        <p>Опыт работы: 15 лет. Специализируется на лечении кариеса и эндодонтии.</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Петрова Мария</h3>
+                        <p class="doctor-specialty">Ортодонт</p>
+                        <p>Опыт работы: 12 лет. Специализируется на исправлении прикуса у детей и взрослых.</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Сидоров Дмитрий</h3>
+                        <p class="doctor-specialty">Хирург-имплантолог</p>
+                        <p>Опыт работы: 18 лет. Провел более 1000 успешных операций по имплантации.</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Кузнецова Ольга</h3>
+                        <p class="doctor-specialty">Детский стоматолог</p>
+                        <p>Опыт работы: 10 лет. Специализируется на лечении зубов у детей с 3 лет.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты и запись</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Адрес</h3>
+                            <p>г. Москва, ул. Стоматологическая, д. 15</p>
+                            <p>Ближайшее метро: "Стоматологическая"</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Телефон</h3>
+                            <p>+7 (495) 123-45-67</p>
+                            <p>+7 (495) 123-45-68</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Режим работы</h3>
+                            <p>Пн-Пт: 9:00 - 21:00</p>
+                            <p>Сб-Вс: 10:00 - 18:00</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>info@dentalcare.ru</p>
+                            <p>appointment@dentalcare.ru</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="appointment-form">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Услуга</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Выберите услугу</option>
+                                <option value="therapy">Терапевтическая стоматология</option>
+                                <option value="orthodontics">Ортодонтия</option>
+                                <option value="prosthetics">Ортопедическая стоматология</option>
+                                <option value="surgery">Хирургическая стоматология</option>
+                                <option value="aesthetic">Эстетическая стоматология</option>
+                                <option value="pediatric">Детская стоматология</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение (необязательно)</label>
+                            <textarea id="message" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Записаться на прием</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>DentalCare</h3>
+                    <p>Стоматологическая клиника, предоставляющая полный спектр услуг для здоровья ваших зубов и красивой улыбки.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="#">Терапевтическая стоматология</a></li>
+                        <li><a href="#">Ортодонтия</a></li>
+                        <li><a href="#">Ортопедическая стоматология</a></li>
+                        <li><a href="#">Хирургическая стоматология</a></li>
+                        <li><a href="#">Эстетическая стоматология</a></li>
+                        <li><a href="#">Детская стоматология</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#doctors">Врачи</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Стоматологическая, д. 15</li>
+                        <li><i class="fas fa-phone"></i> +7 (495) 123-45-67</li>
+                        <li><i class="fas fa-envelope"></i> info@dentalcare.ru</li>
+                        <li><i class="fas fa-clock"></i> Пн-Пт: 9:00 - 21:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 DentalCare. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Мобильное меню
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Плавная прокрутка для ссылок в меню
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Закрываем мобильное меню после клика
+                document.querySelector('nav ul').classList.remove('show');
+            });
+        });
+
+        // Изменение шапки при прокрутке
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '5px 0';
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '0';
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Обработка формы
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+
+        // Анимация появления элементов при прокрутке
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Наблюдаем за карточками услуг
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+
+        // Наблюдаем за карточками врачей
+        document.querySelectorAll('.doctor-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

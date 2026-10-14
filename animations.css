@@ -1,0 +1,114 @@
+/* --- Animations --- */
+
+/* Fade In */
+.animate-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s forwards;
+}
+
+.animate-fade-in-delay-1 {
+    animation-delay: 0.3s;
+}
+
+.animate-fade-in-delay-2 {
+    animation-delay: 0.6s;
+}
+
+.animate-fade-in-delay-3 {
+    animation-delay: 0.9s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide Up */
+.animate-slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 0.8s forwards;
+}
+
+.animate-slide-up-delay-1 { animation-delay: 0.3s; }
+.animate-slide-up-delay-2 { animation-delay: 0.6s; }
+.animate-slide-up-delay-3 { animation-delay: 0.9s; }
+.animate-slide-up-delay-4 { animation-delay: 1.2s; }
+.animate-slide-up-delay-5 { animation-delay: 1.5s; }
+.animate-slide-up-delay-6 { animation-delay: 1.8s; }
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide Left */
+.animate-slide-left {
+    opacity: 0;
+    transform: translateX(40px);
+    animation: slideLeft 0.8s forwards;
+}
+
+.animate-slide-left-delay-1 { animation-delay: 0.3s; }
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide Right */
+.animate-slide-right {
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: slideRight 0.8s forwards;
+}
+
+.animate-slide-right-delay-1 { animation-delay: 0.3s; }
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Hover effect for service items */
+.service-item:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+}
+
+/* Hover effect for team members */
+.team-member:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+}
+
+/* Hover effect for pricing categories */
+.pricing-category:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+}
